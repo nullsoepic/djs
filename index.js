@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs');
+require('dotenv').config();
 const client = new Discord.Client({
 	intents: [Discord.Intents.FLAGS.GUILDS],
 	presence: {
@@ -25,5 +26,5 @@ const commandFolders = fs.readdirSync("./commands");
 
 	client.handleEvents(eventFiles, "./events")
 	client.handleCommands(commandFolders, "./commands")
-	client.login(process.env['secret']);
+	client.login(process.env.token);
 })();
